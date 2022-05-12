@@ -9,10 +9,11 @@ import javax.persistence.Table;
 public class Score {
 
 	@EmbeddedId
-	private ScorePK idScorePK = new ScorePK();
+	private ScorePK idScorePK;
 	private Double value;
 
 	public Score() {
+		this.idScorePK = new ScorePK();
 	}
 	
 	/**

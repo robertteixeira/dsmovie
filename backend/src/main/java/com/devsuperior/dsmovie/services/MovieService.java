@@ -15,10 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MovieService {
-
+	
 	@Autowired
 	private MovieRepository reporsitory;
-
+	
 	@Transactional(readOnly = true)
 	public List<MovieDTO> findAll(Pageable pageable) {
 		Page<Movie> moviesPageable = reporsitory.findAll(pageable);
