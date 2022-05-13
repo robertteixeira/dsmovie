@@ -1,6 +1,5 @@
 package com.devsuperior.dsmovie.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.devsuperior.dsmovie.dto.MovieDTO;
@@ -20,10 +19,9 @@ public class MovieService {
 	private MovieRepository reporsitory;
 	
 	@Transactional(readOnly = true)
-	public List<MovieDTO> findAll(Pageable pageable) {
+	public Page<MovieDTO> findAll(Pageable pageable) {
 		Page<Movie> moviesPageable = reporsitory.findAll(pageable);
-		Page<MovieDTO> moviesDTOPageable = moviesPageable.map(MovieDTO::new);
-		return moviesDTOPageable.getContent();
+		return moviesPageable.map(MovieDTO::new);
 	}
 
 	public MovieDTO findById(Long id) {

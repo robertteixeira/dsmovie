@@ -1,18 +1,27 @@
 import axios from "axios";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/pagination";
+import { useEffect, useState } from "react";
+import { MoviePage } from "types/movie";
 import { BASE_URL } from "utils/requests";
 
 function Listining() {
 
-    //TODO: Forma errada
-    axios.get(`${BASE_URL}/movies?size=10&page=0`)
-        .then(response => {
-            console.log(response.data)
-        });
+    const [pageNumber, setPageNumber] = useState(0);
+
+    // Exceute the function (param 1) when an observed object get some action 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/movies?size=10&page=0`)
+            .then(response => {
+                const data = response.data as MoviePage;
+                console.log(response.data);
+                setPageNumber(data.number);
+            });
+    }, []);
 
     return (
         <>
+            <p>Page Number = {pageNumber}</p>
             <Pagination />
             <div className="container">
                 <div className="row">
