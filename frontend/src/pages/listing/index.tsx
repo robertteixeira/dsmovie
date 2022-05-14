@@ -28,7 +28,6 @@ function Listining() {
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
-                console.log(response.data);
             });
     }, [pageNumber]);
 
@@ -47,7 +46,6 @@ function Listining() {
                             <MovieCard movie={itemMovie} />
                         </div>
                     )}
-
                 </div>
             </div>
         </>
