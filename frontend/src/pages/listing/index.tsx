@@ -24,7 +24,7 @@ function Listining() {
     // Exceute the function (param 1) when an observed object get some action. 
     // In this case, when the pageNuber changes, the request will be done again.
     useEffect(() => {
-        axios.get(`${BASE_URL}/movies?size=8&page=${pageNumber}&sort=id`)
+        axios.get(`${BASE_URL}/movies?size=8&page=${pageNumber}&sort=title`)
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
