@@ -28,7 +28,7 @@ function Listining() {
             .then(response => {
                 const data = response.data as MoviePage;
                 setPage(data);
-                console.log("Page number = " + pageNumber);
+                //console.log("Page number = " + pageNumber);
                 //setPageNumber(data.number);
             });
     }, [pageNumber]);
